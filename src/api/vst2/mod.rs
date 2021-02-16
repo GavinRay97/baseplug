@@ -290,10 +290,10 @@ impl<P: Plugin> VST2Adapter<P> {
                 .into_owned();
 
                 let can_do = match can_do.as_str() {
-                    "sendVstEvents" => Supported::Yes,
-                    "sendVstMidiEvent" => Supported::Yes,
-                    "receiveVstTimeInfo" => Supported::Yes,
-                    _otherwise => Supported::Maybe,
+                    "sendVstEvents" => 1,
+                    "sendVstMidiEvent" => 1,
+                    "receiveVstTimeInfo" => 1,
+                    otherwise => otherwise,
                 };
 
                 return can_do.into();
